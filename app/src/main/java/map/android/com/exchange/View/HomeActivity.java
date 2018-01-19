@@ -21,7 +21,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import map.android.com.exchange.MainActivity;
+
 import map.android.com.exchange.R;
 
 public class HomeActivity extends AppCompatActivity
@@ -102,8 +102,8 @@ public class HomeActivity extends AppCompatActivity
 		 * Returns a new instance of this fragment for the given section
 		 * number.
 		 */
-		public static MainActivity.PlaceholderFragment newInstance(int sectionNumber) {
-			MainActivity.PlaceholderFragment fragment = new MainActivity.PlaceholderFragment();
+		public static HomeActivity.PlaceholderFragment newInstance(int sectionNumber) {
+			HomeActivity.PlaceholderFragment fragment = new PlaceholderFragment();
 			Bundle args = new Bundle();
 			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
 			fragment.setArguments(args);
@@ -113,9 +113,7 @@ public class HomeActivity extends AppCompatActivity
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		                         Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-			TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-			textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+			View rootView = inflater.inflate(R.layout.content_home, container, false);
 			return rootView;
 		}
 	}
@@ -128,7 +126,14 @@ public class HomeActivity extends AppCompatActivity
 
 		@Override
 		public Fragment getItem(int position) {
-			return MainActivity.PlaceholderFragment.newInstance(position + 1);
+			switch (position){
+				case 0:
+					return new SearchObjectActivity();
+				case 1:
+					return new MyObjectActivity();
+				default:
+					return null;
+			}
 		}
 
 		@Override
