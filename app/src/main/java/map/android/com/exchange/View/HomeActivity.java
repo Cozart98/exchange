@@ -1,5 +1,7 @@
 package map.android.com.exchange.View;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import map.android.com.exchange.R;
@@ -69,18 +72,18 @@ public class HomeActivity extends AppCompatActivity
 		// Handle navigation view item clicks here.
 		int id = item.getItemId();
 
-		if (id == R.id.nav_camera) {
-			// Handle the camera action
-		} else if (id == R.id.nav_gallery) {
-
-		} else if (id == R.id.nav_slideshow) {
-
-		} else if (id == R.id.nav_manage) {
+		if (id == R.id.nav_home) {
+			Intent intentHome = new Intent(this,HomeActivity.class);
+			startActivity(intentHome);
+		} else if (id == R.id.nav_profil) {
+			Toast.makeText(this, "profil", Toast.LENGTH_SHORT).show();
 
 		} else if (id == R.id.nav_share) {
-
-		} else if (id == R.id.nav_send) {
-
+			Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
+		} else if (id == R.id.nav_contact) {
+			Toast.makeText(this, "contact", Toast.LENGTH_SHORT).show();
+		} else if (id == R.id.nav_signout) {
+			Toast.makeText(this, "bye", Toast.LENGTH_SHORT).show();
 		}
 
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -89,19 +92,11 @@ public class HomeActivity extends AppCompatActivity
 	}
 
 	public static class PlaceholderFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
 		private static final String ARG_SECTION_NUMBER = "section_number";
 
 		public PlaceholderFragment() {
 		}
 
-		/**
-		 * Returns a new instance of this fragment for the given section
-		 * number.
-		 */
 		public static HomeActivity.PlaceholderFragment newInstance(int sectionNumber) {
 			HomeActivity.PlaceholderFragment fragment = new PlaceholderFragment();
 			Bundle args = new Bundle();
